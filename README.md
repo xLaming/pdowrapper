@@ -32,9 +32,9 @@ $sql->search('users', ['name', 'Paulo'])
 #### Example:
 $sql->rowCount("users")
 
-### Count columns in the database:
+### Count tables in the database:
 #### Example:
-$sql->columnCount()
+$sql->tablesCount()
 
 ### Get the last inserted id:
 #### Example:
