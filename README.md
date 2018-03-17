@@ -30,7 +30,7 @@ $sql->search('users', ['name', 'Paulo'])
 * First field in the array is the column name.
 * Second field in the array is the value.
 
-### Count rows in one table
+### Count rows in one table:
 #### Example:
 $sql->rowCount("users")
 
