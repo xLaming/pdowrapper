@@ -4,7 +4,7 @@
 ### Connection method:
 $sql = new PDOWrapper('localhost', 'root', 'mypassword', 'test_database');
 
-### Using query's method
+### Using query's method:
 #### Examples:
 * Using to delete queries:
     * $sql->query("DELETE FROM users WHERE id = 1")
@@ -12,7 +12,7 @@ $sql = new PDOWrapper('localhost', 'root', 'mypassword', 'test_database');
 * Using to update queries:
     * $sql->query("UPDATE users SET password = 'abc123' WHERE id = 1")
 
-### Fetch data on database
+### Fetch data on database:
 #### Examples:
 * Selecting a ID from a table:
     * $sql->fetch_array("SELECT id FROM users WHERE user = 'admin'");
@@ -20,11 +20,11 @@ $sql = new PDOWrapper('localhost', 'root', 'mypassword', 'test_database');
 * Showing all values from a table:
     * $sql->fetch_array("SELECT id FROM users");
 
-### Insert data to database
+### Insert data to database:
 #### Example:
 $sql->insert('users', ['id' => 10, 'name' => 'Paulo', 'age' => '18'])
 
-### Search data on database
+### Search data on database:
 #### Example:
 $sql->search('users', ['name', 'Paulo'])
 
@@ -32,10 +32,10 @@ $sql->search('users', ['name', 'Paulo'])
 #### Example:
 $sql->rowCount("users")
 
-### Count columns in the database
+### Count columns in the database:
 #### Example:
 $sql->columnCount()
 
-### Get the last inserted id
+### Get the last inserted id:
 #### Example:
 $sql->lastInsertId()
