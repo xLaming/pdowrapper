@@ -17,7 +17,7 @@ $sql->fetch_array("SELECT id FROM users WHERE user = 'admin'");
 /* Insert data database */
 $sql->insert('test', ['id' => 10, 'name' => 'Paulo', 'age' => '18'])
 
-/* Search my name Paulo in table test */
+/* Search my name Paulo in the table test */
 $sql->search('test', ['name', 'Paulo'])
 
 /* Count total of rows in table */
