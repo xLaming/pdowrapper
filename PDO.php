@@ -152,10 +152,10 @@ class PDOWrapper
 	}
 
 	/**
-	 * Count all columns existant in one database. (may be useful for debugs)azZ
+	 * Count all tables existant in one database. (may be useful for debugs)azZ
 	 * @return int
 	 */
-	public function columnCount()
+	public function tablesCount()
 	{
 		$result = $this->fetch_array("SHOW TABLES");
 		return count($result);
