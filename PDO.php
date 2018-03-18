@@ -140,7 +140,7 @@ class PDOWrapper
 		}
 		list($keys, $where, $values) = [
 			substr($keysC, 0, -2),
-			substr($whereC, 0, -5)
+			substr($whereC, 0, -5),
 			array_values($values),
 		];
 		$prepare  = $this->link->prepare("UPDATE {$table} SET {$keys} WHERE {$where}");
