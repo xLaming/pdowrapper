@@ -24,6 +24,12 @@ $sql = new PDOWrapper('localhost', 'root', 'mypassword', 'test_database');
 #### Example:
 $sql->insert('users', ['id' => 10, 'name' => 'Paulo', 'age' => '18'])
 
+### Update data on the database:
+#### Example:
+$sql->update('test', ['age' => '18', 'name' => 'Paulo'], ['id' => 10])
+* First array are the values to be updated.
+* Second array is/are the parameter used in WHERE. E.g: *id => 10* will be *WHERE id = 10*.
+
 ### Search data on database:
 #### Example:
 $sql->search('users', ['name', 'Paulo'])
