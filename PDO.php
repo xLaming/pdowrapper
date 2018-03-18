@@ -5,6 +5,7 @@
  * @copyright MIT License. Copyright (c) 2018 Paulo Rodriguez
  * @author Paulo Rodriguez(xLaming)
  * @link https://github.com/xlaming/pdowrapper
+ * @version 1.1 (stable)
  */
 class PDOWrapper
 {
@@ -108,10 +109,42 @@ class PDOWrapper
 			return false;
 		}
 		$keys    = implode(", ", array_keys($values));
-		$values  = array_values($values);
 		$addAsks = substr(str_repeat("?, ", count($values)), 0, -2);
 		$prepare = $this->link->prepare("INSERT INTO {$table} ({$keys}) VALUES ({$addAsks})");
-		$prepare->execute($values);
+		$prepare->execute(array_values($values));
+		return $prepare;
+	}
+
+	/**
+	 * Update data on the database.
+	 * * Example: $sql->update('test', ['age' => '18'], ['id' => 10])
+	 * @param  string $table
+	 * @param  array $values
+	 * @param  array $where
+	 * @return mixed
+	 */
+	public function update($table, $values, $where)
+	{
+		if (!is_string($table) || !is_array($values) || !is_array($where))
+		{
+			return false;
+		}
+		list($keysC, $whereC) = [null, null];
+		foreach ($values as $k => $v)
+		{
+			$keysC .= "{$k} = ?, ";
+		}
+		foreach ($where as $k => $v)
+		{
+			$whereC .= "{$k} = '{$v}' AND "; // may be changed later eww...
+		}
+		list($keys, $where, $values) = [
+			substr($keysC, 0, -2),
+			substr($whereC, 0, -5)
+			array_values($values),
+		];
+		$prepare  = $this->link->prepare("UPDATE {$table} SET {$keys} WHERE {$where}");
+		$prepare->execute(array_values($values));
 		return $prepare;
 	}
 
@@ -139,8 +172,8 @@ class PDOWrapper
 	/**
 	 * Count all rows existant in one table.
 	 * Example: $sql->rowCount("users")
-	 * @param  string
-	 * @return int
+	 * @param  string $table
+	 * @return mixed
 	 */
 	public function rowCount($table)
 	{
