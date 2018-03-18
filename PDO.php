@@ -109,7 +109,8 @@ class PDOWrapper
 		}
 		$keys    = implode(", ", array_keys($values));
 		$values  = array_values($values);
-		$prepare = $this->link->prepare("INSERT INTO {$table} ({$keys}) VALUES (?, ?, ?)");
+		$addAsks = substr(str_repeat("?, ", count($values)), 0, -2);
+		$prepare = $this->link->prepare("INSERT INTO {$table} ({$keys}) VALUES ({$addAsks})");
 		$prepare->execute($values);
 		return $prepare;
 	}
@@ -152,7 +153,7 @@ class PDOWrapper
 	}
 
 	/**
-	 * Count all tables existant in one database. (may be useful for debugs)azZ
+	 * Count all tables existant in one database. (may be useful for debugs)
 	 * @return int
 	 */
 	public function tablesCount()
