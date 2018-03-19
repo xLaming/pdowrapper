@@ -8,8 +8,7 @@ $sql = new PDOWrapper('localhost', 'root', 'mypassword', 'test_database');
 * Using to delete queries:
     * $sql->query("DELETE FROM users WHERE id = 1")
     
-* Using to update queries:
-    * $sql->query("UPDATE users SET password = 'abc123' WHERE id = 1")
+* Obviously you can use another methods, they all will work fine.
 
 ### Fetch data on database:
 * Selecting a ID from a table:
