@@ -92,7 +92,7 @@ class PDOWrapper
 		}
 		$this->query($string);
 		$result = $this->result->fetchAll();
-		return empty($result) ? array() : $return;
+		return empty($result) ? array() : $result;
 	}
 
 	/**
