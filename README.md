@@ -1,5 +1,5 @@
 # PDO Wrapper
-* This is a free PDO class written in PHP that you use to handle connections to databases like MySQL, SQLite etc.
+* This is a PDO class written in PHP that you use to handle connections to databases like MySQL, SQLite etc.
 
 ### Connection method:
 $sql = new PDOWrapper('localhost', 'root', 'mypassword', 'test_database');
